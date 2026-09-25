@@ -1,0 +1,21 @@
+void plot_cr() {
+    
+    TCanvas *c1 = new TCanvas("c1", "Perfil de Raios Cosmicos", 800, 600);
+    
+ 
+    TGraph *graph = new TGraph("dados_galaxia.txt", "%lg %lg");
+    
+
+    graph->SetTitle("Perfil de Densidade de Raios Cosmicos (1D);Posicao z (Disco Galactico);Densidade N(z)");
+    graph->SetMarkerStyle(21); // Quadrados
+    graph->SetMarkerColor(kBlue);
+    graph->SetLineColor(kBlue + 2);
+    graph->SetLineWidth(2);
+    
+ 
+    graph->Draw("ALP");
+    
+    c1->SaveAs("grafico_raios_cosmicos.png");
+}
+
+
